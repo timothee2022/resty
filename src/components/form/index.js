@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './form.scss';
 
-class Form extends React.Component {
 
-  handleSubmit = e => {
+export default function Form (props) {
+  
+  const formData = {
+    method:'GET',
+    url: 'https://pokeapi.co/api/v2/pokemon',
+  };
+
+  const [todo, setTodo] = useState(formData);
+  
+
+  const handleSubmit = e => {
     e.preventDefault();
-    const formData = {
-      method:'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon',
-    };
-    this.props.handleApiCall(formData);
+    props.handleApiCall(formData);
   }
 
-  render() {
+
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <label >
             <span>URL: </span>
             <input name='url' type='text' />
@@ -32,6 +37,3 @@ class Form extends React.Component {
       </>
     );
   }
-}
-
-export default Form;
