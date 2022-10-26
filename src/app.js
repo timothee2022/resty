@@ -20,16 +20,9 @@ export default function App() {
   const [data, setData] = useState(initialState);
   const [requestParams, setRequestParams] = useState({});
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     data: null,
-  //     requestParams: {},
-  //   };
-  // }
 
   const callApi = async (requestParams) => {
-    const newData = await axios.get('https://swapi.dev/api/people/?page=2');
+    // const newData = await axios.get('https://swapi.dev/api/people/?page=2');
 
     setData(newData.data.results[0]);
     setRequestParams(requestParams);
