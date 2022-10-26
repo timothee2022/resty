@@ -5,7 +5,7 @@ import Header from'./index.js';
 
 describe('The Header Component', () => {
   it('renders h1', () => {
-    render(<Header greeting="Test"/>);
+    render(<Header RESTy="Test"/>);
 
     let h1 = screen.getByTestId('header-h1');
     expect(h1).toHaveTextContent('RESTy');
