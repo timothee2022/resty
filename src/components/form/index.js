@@ -10,7 +10,7 @@ export default function Form (props) {
     url: 'https://pokeapi.co/api/v2/pokemon',
   };
 
-  const [todo, setTodo] = useState(formData);
+  // const [todo, setTodo] = useState(formData);
   
 
   const handleSubmit = e => {
