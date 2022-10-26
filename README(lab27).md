@@ -39,4 +39,3 @@ Application Flow:
 
 #### UML
 
-![Lab 16 UML](./LAB%2026%20UML.PNG)
