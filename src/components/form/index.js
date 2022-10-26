@@ -7,7 +7,7 @@ export default function Form (props) {
   
   const formData = {
     method:'GET',
-    url: 'https://pokeapi.co/api/v2/pokemon',
+    url: 'https://swapi.dev/api/people/?page=2',
   };
 
   // const [todo, setTodo] = useState(formData);
