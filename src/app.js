@@ -31,7 +31,7 @@ export default function App() {
   const callApi = async (requestParams) => {
     const newData = await axios.get('https://swapi.dev/api/people/?page=2');
 
-    setData(newData.data.results);
+    setData(newData.data.results[0]);
     setRequestParams(requestParams);
   }
 
