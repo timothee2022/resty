@@ -4,18 +4,19 @@ import './form.scss';
 
 
 export default function Form (props) {
-  
-  const formData = {
-    method:'GET',
-    url: 'https://swapi.dev/api/people/?page=2',
-  };
 
-  // const [todo, setTodo] = useState(formData);
+  const [method, setMethod] = useState('');
+  const [url, setUrl] = useState('');
   
-
+  // const formData = {
+  //   method:'GET',
+  //   url: 'https://swapi.dev/api/people/?page=2',
+  // };
+  
   const handleSubmit = e => {
     e.preventDefault();
-    props.handleApiCall(formData);
+
+    props.handleApiCall({method, url});
   }
 
 
@@ -24,11 +25,11 @@ export default function Form (props) {
         <form onSubmit={handleSubmit}>
           <label >
             <span>URL: </span>
-            <input name='url' type='text' />
+            <input onChange={(e) => setUrl(e.target.value)} name='url' type='text' />
             <button type="submit">GO!</button>
           </label>
           <label className="methods">
-            <span id="get">GET</span>
+            <span id="get" onClick={(e) => setMethod('get')}>GET</span>
             <span id="post">POST</span>
             <span id="put">PUT</span>
             <span id="delete">DELETE</span>

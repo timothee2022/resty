@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './app.scss';
 
@@ -10,6 +10,10 @@ import Form from './components/form';
 import Results from './components/results';
 import axios from 'axios';
 
+useEffect(() => {
+  console.log('useEffect has been called');
+})
+
 export default function App() {
 
   const initialState = {
@@ -20,18 +24,11 @@ export default function App() {
   const [data, setData] = useState(initialState);
   const [requestParams, setRequestParams] = useState({});
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     data: null,
-  //     requestParams: {},
-  //   };
-  // }
 
   const callApi = async (requestParams) => {
     const newData = await axios.get('https://swapi.dev/api/people/?page=2');
 
-    setData(newData.data.results[0]);
+    setData(newData.data.results);
     setRequestParams(requestParams);
   }
 
