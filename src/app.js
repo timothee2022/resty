@@ -10,26 +10,36 @@ import Form from './components/form';
 import Results from './components/results';
 import axios from 'axios';
 
-useEffect(() => {
-  console.log('useEffect has been called');
-})
 
 export default function App() {
+  
+  // const initialState = {
+    //   data: null,
+    //   requestParams: {},
+    // };
+    
+    const [data, setData] = useState(null);
+    const [requestParams, setRequestParams] = useState({});
+    const [header, setHeader] = useState(null);
+    
+    useEffect(() => {
+      console.log('useEffect has been called');
+    })
 
-  const initialState = {
-    data: null,
-    requestParams: {},
-  };
+  const callApi = async (url, method) => {
+    const newData = await axios({
+      method: method,
+      url: url,
+    })
 
-  const [data, setData] = useState(initialState);
-  const [requestParams, setRequestParams] = useState({});
-
-
-  const callApi = async (requestParams) => {
-    const newData = await axios.get('https://swapi.dev/api/people/?page=2');
+    const requestParams = {
+      url,
+      method,
+    }
 
     setData(newData.data.results);
     setRequestParams(requestParams);
+    setHeader(newData.header);
   }
 
   return(
@@ -38,7 +48,7 @@ export default function App() {
         <div>Request Method: {requestParams.method}</div>
         <div>URL: {requestParams.url}</div>
         <Form handleApiCall={callApi} />
-        <Results data={data} />
+        <Results data={data} header={header} />
         <Footer />
       </React.Fragment >
     );
