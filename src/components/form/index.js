@@ -5,19 +5,20 @@ import './form.scss';
 
 export default function Form (props) {
 
-  const [method, setMethod] = useState('');
+  const [method, setMethod] = useState('GET');
   const [url, setUrl] = useState('');
   const [data, setData] = useState('');
   
-  // const formData = {
-  //   method:'GET',
-  //   url: 'https://swapi.dev/api/people/?page=2',
-  // };
-  
   const handleSubmit = e => {
     e.preventDefault();
+    const formData = {
+      method,
+      url,
+      data,
+    }
 
-    props.handleApiCall({method, url, data});
+    props.handleApiCall(formData);
+    
   }
 
 
