@@ -1,14 +1,12 @@
-$backgroundColor: #f5f5f5;
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+$backgroundColor: #bab999;
+
+$fascinate: 'Fascinate', cursive;
 
 body {
   background: $backgroundColor;
   height: 100%;
+  font-family: 'Fascinate Inline';font-size: 22px;
 
   #root {
     display: flex;
@@ -16,20 +14,30 @@ body {
     height: 100%;
   }
 
+  h1 {
+    font-family: $fascinate;
+    font-size: 3vw;
+  }
+
   footer {
-    background: darken($backgroundColor, 50);
+    background: lightslategray;
+    font-family: 'Fascinate Inline';font-size: 22px;
     border-top: 1px solid #eee;
-    padding: 1em 3em;
-    margin: 0;
+    padding: 1em;
   }
 
   header {
-    background: darken($backgroundColor, 75);
+    background: lightslategray;
     border-bottom: 1px solid #eee;
-    color: #eee;
     padding: 0;
     margin: 0;
     text-align: center;
   }
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fascinate Inline';font-size: 22px;
+}

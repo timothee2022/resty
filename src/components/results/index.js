@@ -19,6 +19,3 @@ export default function Results (props) {
       </section>
     );
   }
-
-
-  {/* <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}<JSONPretty/></pre> */}
